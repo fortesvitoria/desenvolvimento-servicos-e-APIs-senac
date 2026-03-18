@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "name": "aula03testebcrypt",
+  "version": "1.0.0",
+  "main": "teste.js",
+  "scripts": {
+    "start": "node teste.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
