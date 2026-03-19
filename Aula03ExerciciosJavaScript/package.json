@@ -1,0 +1,16 @@
+{
+  "name": "aula03exerciciosjavascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "aula03ex01.js",
+  "scripts": {
+    "start": "node aula03ex05.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
