@@ -77,15 +77,15 @@ switch (formaPagamento) {
 
 }
 
-let qtd = '';
+let textoUnidade = '';
 
 for (let produto of produtos) {
     if (produto.quantidade == 1) {
-        qtd = "unidade"
-        console.log(`${produto.nome} - R$ ${produto.preco} - ${produto.quantidade} ${qtd}`)
+        textoUnidade = "unidade"
+        console.log(`${produto.nome} - R$ ${produto.preco} - ${produto.quantidade} ${textoUnidade}`)
     } else {
-        qtd = "unidades"
-        console.log(`${produto.nome} - R$ ${produto.preco} - ${produto.quantidade} ${qtd}`)
+        textoUnidade = "unidades"
+        console.log(`${produto.nome} - R$ ${produto.preco} - ${produto.quantidade} ${textoUnidade}`)
     }
 }
 
