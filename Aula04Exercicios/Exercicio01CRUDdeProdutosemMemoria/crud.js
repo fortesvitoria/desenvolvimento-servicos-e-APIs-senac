@@ -33,10 +33,6 @@ export function inserir(nome,categoria,preco) {
 
 }
 
-
-function listar() {
-    for (let produto of listaDeProdutos) {
-        console.log(`${produto.id} - R$ ${produto.nome} - ${produto.categoria} ${produto.preco}`)
-
-    }
+export function listar() {
+        return listaDeProdutos
 }
