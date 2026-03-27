@@ -3,10 +3,13 @@ Atividade 1 - CRUD de Produtos em Memória
 Realize as seguintes operações de um CRUD de produtos (id [gerado], nome, categoria e preco) em memória (utilize array):
 
 1. inserir: insere um produto no array, gerando um id com a ideia de autoincremento.
+
 2. listar: retorna a lista de produtos
 3. buscar por id: com base no id, retorna o produto correspondente.
+
 4. atualizar: recebendo o id e em um produto, atualiza na lista o produto relacionado.
 5. deletar: remove o produto com o id recebido no parâmetro.
+
 6. pesquisar por categoria: retorna uma lista de produtos correspondente a determinada categoria.
 7. pesquisar por nome (like): retorna uma lista de produtos correspondente que contenha a palavra-chave.
 Para testar, realize apenas chamadas de funções do próprio código (sem entrada de dados).
@@ -20,19 +23,32 @@ function incrementar() {
     return id++;
 }
 
-export function inserir(nome,categoria,preco) {
+export function inserir(nome, categoria, preco) {
 
-        listaDeProdutos.push({
-            id: incrementar(),
-            nome: nome,
-            categoria: categoria,
-            preco: preco
-        })
+    listaDeProdutos.push({
+        ID: incrementar(),
+        Nome: nome,
+        Categoria: categoria,
+        Preco: `R$ ${preco.toFixed(2)}`
+    })
 
-        console.log(listaDeProdutos);
+    // console.log(listaDeProdutos);
 
 }
 
 export function listar() {
-        return listaDeProdutos
+    console.log(listaDeProdutos);
 }
+
+export function buscarPorId(id) {
+    // let encontrado = false;
+    for (let produto of listaDeProdutos) {
+        if (produto.ID == id) {
+            console.log(produto);
+            return true;
+        }
+    }
+    return false;
+}
+
+// export function atualizar(id, produto)
