@@ -1,16 +1,12 @@
 {
-  "name": "exercicio01cruddeprodutosemmemoria",
+  "name": "cadastro_produtos",
   "version": "1.0.0",
   "main": "main.js",
-  "type": "module",
   "scripts": {
     "start": "node main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "prompt-sync": "^4.2.0"
-  }
+  "description": ""
 }
