@@ -1,0 +1,12 @@
+{
+  "name": "aula07exerciciocrud",
+  "version": "1.0.0",
+  "description": "Aula 07",
+  "license": "ISC",
+  "author": "Vitoria Fortes",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
