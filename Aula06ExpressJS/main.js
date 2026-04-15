@@ -15,18 +15,16 @@ app.post('/api/produtos', (req, res) => {
 })
 
 app.get('/api/produtos/:id', (req, res) => {
-  res.send('<h2>Listar Produtos por ID:</h2>')
+  res.send('<h2>Listar Produtos por ID:</h2>' + req.params.id)
 })
 
 app.put('/api/produtos/:id', (req, res) => {
-  res.send('<h2>Atualizar Produto:</h2>')
+  res.send('<h2>Atualizar Produto com ID:</h2>' + req.params.id)
 })
 
 app.delete('/api/produtos/:id', (req, res) => {
-  res.send('<h2>Deletar Produto:</h2>')
+  res.send('<h2>Deletar Produto com ID:</h2>' + req.params.id)
 })
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
