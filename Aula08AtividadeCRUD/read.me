@@ -1,0 +1,114 @@
+Crie uma API para realizar um CRUD de Clientes para um sistema de atendimento. 
+
+Cada cliente pode ser pessoa física ou jurídica e possui as seguintes informações: 
+- cpfCnpj, tipoPessoa (Física ou Jurídica), nome, email e data de nascimento.
+
+US1 - Inclusão de novo cliente
+
+Como um atendente
+Eu quero incluir um novo cliente informando seu CPF ou CNPJ, tipo de pessoa,  nome, e-mail e data de nascimento
+Para que o sistema mantenha um cadastro oficial e padronizado de clientes
+
+Regras
+    [R01] O CPF/CNPJ é obrigatório
+    [R02] O CPF/CNPJ  deve ter no mínimo 9 caracteres  
+    [R03] O CPF/CNPJ deve ser único na base 
+    [R04] O tipo de pessoa é obrigatório
+    [R05] O tipo pessoa deve aceitar apenas "F" para físico e "J" para jurídico
+    [R06] O nome é obrigatório
+    [R07] O nome deve conter apenas letras, números e acentuação
+    [R08] O e-mail é obrigatório
+    [R09] O e-mail deve ter um único '@' e pelo menos um '.'
+    [R10] A data de nascimento é opcional, mas deve ser uma data válida e não futura.
+
+
+US2 - Listar clientes
+
+Como um atendente
+
+ Eu quero visualizar a lista completa dos clientes
+ Para apoiar no atendimento
+
+Regras
+    [R01] Deve trazer todos os clientes ordenados pelo nome
+    [R02] A listagem deve exibir para cada cliente:
+        - CPF/CNPJ  
+        - Tipo pessoa ("F" ou "J")
+        - Nome do cliente
+        - E-mail do cliente
+
+US3 - Buscar um cliente pelo seu CPF/CNPJ
+
+Como um atendente
+
+ Eu quero buscar um cliente pelo CPF/CNPJ
+ Para apoiar no atendimento
+
+Regras
+    [R01] O CPF/CNPJ é obrigatório
+    [R02] O CPF/CNPJ deve ter no mínimo 9 caracteres
+    [R03] A listagem deve exibir para cada cliente:  
+       - CPF/CNPJ 
+       - Tipo pessoa ("F" ou "J")
+       - Nome do cliente 
+       - E-mail do cliente  
+       - Data de Nascimento no formato "dd/MM/yyyy"
+
+
+
+-----------------------------------------------------------------------------
+Para utilizar
+
+- npm init
+- npm install express
+- npm start
+
+adding metodo post:
+{
+	"cpfCnpj": "123456789",
+	"tipoPessoa" : "F",
+	"nome": "Joao Maria",
+	"email": "joaom@email.com",
+	"dataNasc": "23/06/1990"
+}
+{
+	"cpfCnpj": "123456786",
+	"tipoPessoa" : "F",
+	"nome": "Ana Maria",
+	"email": "Anam@email.com",
+	"dataNasc": "14/07/1989"
+}
+
+{
+	"cpfCnpj": "123456780",
+	"tipoPessoa" : "F",
+	"nome": "Livia Maria",
+	"email": "livia@email.com",
+	"dataNasc": "10/10/1992"
+}
+
+atualiza:
+{
+	"tipoPessoa": "F",
+	"nome": "Joao Maria Atual",
+	"email": "joaom@emailatual.com",
+	"dataNasc": "23/06/1990"
+}
+
+localhost:3000/api/clientes/123456780
+
+-----------------------------------------------------------------------------
+Arquivos: 
+- app.js: rotas
+- cliente_service.js: logica de negocios
+- cliente_repository: banco
+- cliente_validados: validações
+
+Status HTTP:
+- Sucesso:
+    200 - OK
+    201 - CREATED
+- Erros cliente:
+    400 - Bad Request
+    404 - Not Found
+- Erro no servidor: 500
