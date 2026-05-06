@@ -1,0 +1,15 @@
+{
+  "name": "aula10atividadepratica",
+  "version": "1.0.0",
+  "description": "Aula Pratica",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vitoria Fortes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}

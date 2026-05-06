@@ -1,0 +1,91 @@
+Avaliação Prática 1
+
+Nessa avaliação, a ideia é criar uma API para um MVP (Produto Mínimo Viável) de pedidos para uma empresa que trabalha com vendas de produtos. 
+
+A ideia desse MVP é anotar no pedido as seguintes informações:
+codigo – código identificador (número inteiro – gerado automaticamente)
+dataHora – data e hora do pedido (Date – gerado automaticamente)
+clienteCpf – CPF do cliente (string)
+clienteNome – Nome do cliente (string)
+produtoNome – Nome/Descrição do produto (string)
+produtoPreco – Preço do produto (number – decimal)
+situacao – situação do pedido (string: aberto, pago, finalizado)
+ 
+As histórias do usuário disponibilizadas pelos times de negócio e qualidade são as seguintes:
+
+US01 – Inclusão de um novo pedido
+Como um colaborador
+Eu quero incluir um novo pedido
+Para que o sistema mantenha os pedidos registrados no sistema
+Regras de Negócio:
+-- [R01] O CPF do cliente é obrigatório.
+-- [R02] O CPF deve ser numérico e possuir 9 algarismos.
+
+-- [R03] O nome do cliente é obrigatório.
+-- [R04] O nome do cliente deve ter pelo menos 5 caracteres.
+
+-- [R05] O nome do produto é obrigatório.
+-- [R06] O nome do produto deve ter pelo menos 5 caracteres.
+
+-- [R07] O preço do produto é obrigatório.
+-- [R08] O preço do produto deve ser um número positivo.
+********** [R09] O pedido deve ter preenchido automaticamente o código, a dataHora (atual) e a situação como “aberto”.
+
+US02 – Listagem de pedidos: Como um colaborador eu quero visualizar a lista 
+de pedidos realizados para apoiar consultas operacionais
+Regras de Negócio:
+[R01] A listagem deve retornar os pedidos cadastrados de acordo com o seguinte 
+critério de filtragem (opcional):
+- situação
+[R02] Caso especificada a situação, deve permitir somente os valores “aberto”,  “pago” e “finalizado”
+
+-- [R03] A listagem deve exibir todos os pedidos, onde cada pedido deve mostrar:
+-- - codigo
+-- - dataHora
+-- - clienteNome
+-- - produtoNome
+-- - situacao
+-- - valor total (produtoPreco)
+ 
+US03 – Consulta de um pedido. Como um colaborador
+Eu quero consultar os dados completos de um pedido
+Para validar informações em consultas operacionais
+Regras de Negócio:
+[R01] O código do produto é obrigatóri
+[R02] O código do produto deve ser um número
+[R03] A consulta deve exibir as seguintes informações:
+- codigo
+- dataHora
+- clienteRG
+- clienteNome
+- produtoNome
+- situacao
+- valor total (produtoPreco)
+ 
+US04 –Atualizar a situação de um pedido
+Como um colaborador
+Eu quero atualizar um pedido
+Para manter a situação correta de cada pedido
+Regras de Negócio:
+[R01] O código do produto é obrigatório
+[R02] O código do produto deve ser um número
+[R03] A situação do pedido é obrigatória
+[R04] A situação só permite os valores “aberto”,  “pago” e “finalizado”
+ 
+US05 –Deletar um pedido
+Como um colaborador
+Eu quero remover um pedido
+Para permitir a remoção de pedidos inconsistentes
+Regras de Negócio:
+[R01] O código do produto é obrigatório
+[R02] O código do produto deve ser um número
+
+
+-------
+Adiciona produto:
+{
+	"cpfCnpj": "123456789",
+	"nomeCliente" : "Joao Avila",
+	"nomeProduto": "Macarrão",
+	"preco": 9.99,
+}
