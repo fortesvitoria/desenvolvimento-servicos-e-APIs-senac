@@ -2,20 +2,21 @@
   "name": "crud_produtos",
   "version": "1.0.0",
   "description": "Realiza CRUD de produtos",
-  "main": "main.js",
-  "scripts": {
-    "start": "node app.js"
-  },
   "keywords": [
     "CRUD",
     "produtos"
   ],
-  "author": "Ries",
   "license": "ISC",
-  "devDependencies": {
-    "jest": "^29.7.0"
+  "author": "Ries",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
