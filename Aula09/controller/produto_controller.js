@@ -25,12 +25,35 @@ async function inserir(req, res) {
     catch(err) {
         res.status(err.id).json({erro:err.msg});
     }
+}
 
-    
+async function atualizar(req, res) {
+    const id = +req.params.id;
+    const produto = req.body;
+    try{
+        const produtoAtualizado = await produtoService.atualizar(id, produto);
+        res.json(produtoAtualizado);
+    }    
+    catch(err) {
+        res.status(err.id).json({erro:err.msg});
+    }
+}
+
+async function deletar(req, res) {
+    const id = +req.params.id;
+    try{
+        const produtoDeletado = await produtoService.deletar(id);
+        res.json(produtoDeletado);
+    }    
+    catch(err) {
+        res.status(err.id).json({erro:err.msg});
+    }
 }
 
 module.exports = {
     listar,
     buscarPorId,
-    inserir
+    inserir,
+    atualizar,
+    deletar
 }
