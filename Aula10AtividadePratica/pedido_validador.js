@@ -4,7 +4,7 @@
 function validaCpf(cpf) {
     if(!cpf)
         throw "CPF é obrigatório";
-    if(cpfCnpj.trim().length < 9)
+    if(cpf.trim().length < 9)
         throw "CPF deve ter no minimo 9 caracteres";
 }
 

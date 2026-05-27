@@ -34,6 +34,20 @@ app.post("/api/pedidos", async (req, res) =>{
     }   
 })
 
+// Rota para atualizar um pedido existente pelo id
+// Recebe os dados atualizados e chama o serviço para atualizar
+app.put("/api/pedidos/:id", async (req, res) =>{
+    const id = req.params.id;
+    const pedido = req.body;
+    try{
+        const pedidoAtualizado = await pedidoService.atualizar(id, pedido);
+        res.json(pedidoAtualizado);
+    }
+    catch(err) {
+        res.status(err.id).json({erro:err.msg});
+    }
+})
+
 // Rota para remover um pedido pelo id
 app.delete("/api/pedidos/:id", async (req, res) =>{
     const id = req.params.id;

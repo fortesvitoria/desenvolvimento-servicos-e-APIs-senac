@@ -33,7 +33,19 @@ async function inserir(pedido) {
 }
 
 function buscarIndicePorId(id) {
-    return listaPedidos.findIndex((pedido) => pedido.id === id);
+    return listaPedidos.findIndex((pedido) => pedido.id == id);
+}
+
+// Função para atualizar um cliente existente
+// Encontra o índice, atualiza os dados e retorna o cliente atualizado
+async function atualizar(id, PedidoAtualizado) {
+
+    let indice = buscarIndicePorId(id);
+    if(indice >= 0) {
+        PedidoAtualizado.id = id;
+        listaPedidos[indice] = PedidoAtualizado;
+        return listaPedidos[indice];
+    }
 }
 
 async function deletar(id) {
@@ -50,5 +62,6 @@ module.exports = {
     listar,
     inserir,
     buscarPorId,
+    atualizar,
     deletar
 }

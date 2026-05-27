@@ -10,30 +10,64 @@ async function listar() {
 
 // Função para inserir um novo pedido
 async function inserir(pedido) {
-    if(pedido && pedido.cpf && pedido.nomeCliente 
-        && pedido.nomeProduto && pedido.preco
-        && typeof(pedido.preco) === 'number'){
-            return await pedidoRepository.inserir(pedido);
+    try {
+        pedidoValidador.validaPedido(pedido);
+        const pedidoInserido = await pedidoRepository.inserir(pedido);
+        if (!pedidoInserido) {
+            throw "Pedido sem dados corretos";
+        }
+        return pedidoInserido;
     }
-    else {
-        throw { id: 400, msg: "Produto sem dados corretos"}
+    catch (erro) {
+        throw { id: 400, msg: erro };
     }
 }
 
+
 // Função para buscar pedido por id
 async function buscarPorId(id) {
+    try {
+        pedidoValidador.validaId(id);
+    }
+    catch (erro) {
+        throw { id: 400, msg: "ID não encontrada" }
+    }
+
     let pedido = await pedidoRepository.buscarPorId(id);
     if (pedido) {
         return pedido;
     } else {
-        throw {id: 404, msg: "Pedido não encontrado"};
+        throw { id: 404, msg: "Pedido não encontrado" };
+    }
+}
+
+// Função para atualizar um cliente
+// Verifica se há dados para atualizar e chama o repositório
+async function atualizar(id, pedido) {
+
+    try { 
+        pedidoValidador.validaPedido(pedido);
+
+    }
+    catch (erro) {
+        throw { id: 400, msg: erro };
+    }
+    
+    if (pedido && (pedido.nomeCliente || pedido.nomeProduto || pedido.preco)) {
+        const pedidoAtualizado = await pedidoRepository.atualizar(id, pedido);
+        if (pedidoAtualizado) {
+            return pedido;
+        }
+    }
+    else {
+        throw { id: 400, msg: "Pedido sem dados corretos" };
     }
 }
 
 // Função para deletar pedido
 async function deletar(id) {
     let pedido = await pedidoRepository.deletar(parseInt(id));
-    if(pedido) {
+    if (pedido) {
         return pedido;
     }
     else {
@@ -47,5 +81,6 @@ module.exports = {
     listar,
     inserir,
     buscarPorId,
+    atualizar,
     deletar
 }
