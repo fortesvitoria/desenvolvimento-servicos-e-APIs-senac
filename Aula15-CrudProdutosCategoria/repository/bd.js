@@ -5,7 +5,7 @@ const pool = new Pool({
     password: "senacrs",
     host:"localhost",
     port: 5432,
-    database: "crud_produtos_categorias"    
+    database: "crud_produtos"    
 });
 
 async function connect() {

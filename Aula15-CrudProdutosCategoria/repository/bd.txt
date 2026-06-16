@@ -1,0 +1,23 @@
+CREATE TABLE categorias (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE produtos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  categoria_id INTEGER NOT NULL REFERENCES categorias(id),
+  preco NUMERIC(10,2) NOT NULL
+);
+
+INSERT INTO categorias (nome) VALUES ('Eletrônicos'), ('Livros');
+INSERT INTO produtos (nome, categoria_id, preco) VALUES ('Fone de ouvido', 1, 99.90), ('Livro JS Avançado', 2, 59.90);
+
+
+-----
+Formato para utilizar o POST no insomnia:
+{
+"nome": "Calculadora",
+"preco": 69.90,
+"idCategoria": 1
+}
