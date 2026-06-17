@@ -21,3 +21,7 @@ Formato para utilizar o POST no insomnia:
 "preco": 69.90,
 "idCategoria": 1
 }
+
+-----
+Biblioteca para criar token:
+https://www.npmjs.com/package/jsonwebtoken
