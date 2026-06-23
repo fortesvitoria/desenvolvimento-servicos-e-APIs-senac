@@ -1,0 +1,57 @@
+-----------------------------
+BANCO DE DADADOS:
+-----------------------------
+
+3. Gestão de Categorias de Produtos
+3.1 CRUD de Categoria de Produtos:
+
+Nome;
+Descrição.
+
+
+CREATE TABLE categorias (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL
+  descricao VARCHAR(255) NOT NULL
+);
+
+INSERT INTO categorias (nome, descricao) VALUES ('Bebidas', 'Bebidas não alcoólicas'), 
+('Bebidas Alcoólicas', 'Bebidas com alcoól), ('Alimentos', 'Alimentos variados);
+
+--------------------------------------
+Endpoints
+Criar Categoria
+Listar Categorias
+Buscar Categoria
+Atualizar Categoria
+Remover Categoria
+
+-------------------------------------
+
+-----------------------------
+BANCO DE DADADOS:
+-----------------------------
+3.2 CRUD de Produtos:
+
+Nome;
+Categoria;
+Preço unitário.
+
+CREATE TABLE produtos (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  categoria_id INTEGER NOT NULL REFERENCES categorias(id),
+  preco NUMERIC(10,2) NOT NULL
+);
+
+INSERT INTO produtos (nome, categoria_id, preco) VALUES ('Água com gás', 1, 6.90), ('Coca-Cola', 1, 8.90), ('Suco de Laranja', 1, 12.90), 
+('Cerveja Heineken Longneck', 2, 16); ('Cerveja Corona Longneck', 2, 16); ('Vinho Tinto Seco 600ml', 2, 76,90);
+('Amendoim Salgado', 3, 12); ('Batata Chips', 3, 14); ('Cookies pacote', 3, 12);
+
+----------------------------------
+Endpoints
+Criar Produto
+Listar Produtos
+Buscar Produto
+Atualizar Produto
+Remover Produto
